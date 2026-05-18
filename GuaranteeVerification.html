@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>国内保函验真</title>
+    <style>
+        :root {
+            --primary-gradient-start: #5b7fe5;
+            --primary-gradient-end: #7c5fcd;
+            --card-bg: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #666666;
+            --border-color: #e8e8e8;
+            --tip-bg: #fef9f2;
+            --tip-text: #8c6d3f;
+            --tip-icon: #e6a85c;
+            --btn-border: #7c6fb0;
+            --btn-text: #5b4fa0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(180deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 35%, #f5f5f5 35%);
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .header-left::before {
+            content: '<';
+            font-size: 22px;
+            color: var(--text-primary);
+            font-weight: 300;
+            letter-spacing: -2px;
+        }
+
+        .header-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .more-btn {
+            font-size: 20px;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .avatar-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .avatar-icon::after {
+            content: '👤';
+            font-size: 14px;
+        }
+
+        .main-content {
+            padding: 20px 16px 24px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .field-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+            min-height: 52px;
+        }
+
+        .field-row:last-child {
+            border-bottom: none;
+        }
+
+        .field-label {
+            font-size: 15px;
+            color: var(--text-primary);
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .field-value {
+            font-size: 15px;
+            color: var(--text-primary);
+            text-align: right;
+            word-break: break-all;
+            line-height: 1.5;
+            margin-left: 16px;
+            font-weight: 400;
+        }
+
+        .tip-section {
+            margin-top: 20px;
+            background: var(--tip-bg);
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .tip-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            line-height: 1.5;
+        }
+
+        .tip-content {
+            flex: 1;
+        }
+
+        .tip-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tip-text);
+            margin-bottom: 4px;
+        }
+
+        .tip-text {
+            font-size: 13px;
+            color: var(--tip-text);
+            line-height: 1.6;
+        }
+
+        .back-btn-wrapper {
+            margin-top: 28px;
+            padding: 0 16px;
+        }
+
+        .back-btn {
+            width: 100%;
+            height: 46px;
+            border: 1.5px solid var(--btn-border);
+            border-radius: 24px;
+            background: transparent;
+            color: var(--btn-text);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 2px;
+        }
+
+        .back-btn:hover {
+            background: rgba(92, 79, 160, 0.05);
+        }
+
+        .back-btn:active {
+            transform: scale(0.98);
+            background: rgba(92, 79, 160, 0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left"></div>
+            <div class="header-title">国内保函验真</div>
+            <div class="header-right">
+                <span class="more-btn">···</span>
+                <div class="avatar-icon"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="info-card">
+                <div class="field-row">
+                    <span class="field-label">保函编号：</span>
+                    <span class="field-value">110DB24072900047</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">保函金额：</span>
+                    <span class="field-value">116,500.00</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">保函类型：</span>
+                    <span class="field-value">质量保函</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">被担保人名称：</span>
+                    <span class="field-value">天道云（北京）科技有限公司</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">受益人名称：</span>
+                    <span class="field-value">中国安能集团第三工程局有限公司</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">担保银行：</span>
+                    <span class="field-value">招商银行股份有限公司北京分行</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">保函开立日期：</span>
+                    <span class="field-value">2024-07-30</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">保函到期日期：</span>
+                    <span class="field-value">2029-09-15</span>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">验真结果：</span>
+                    <span class="field-value">保函文本已生效</span>
+                </div>
+            </div>
+
+            <div class="tip-section">
+                <span class="tip-icon">🔔</span>
+                <div class="tip-content">
+                    <div class="tip-title">小招提醒：</div>
+                    <div class="tip-text">请注意核对您所持的保函文本中关键字段是否与验真结果完全一致</div>
+                </div>
+            </div>
+
+            <div class="back-btn-wrapper">
+                <button class="back-btn" onclick="history.back()">返回</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,14 +9,11 @@
             --primary-gradient-start: #5b7fe5;
             --primary-gradient-end: #7c5fcd;
             --card-bg: #ffffff;
-            --text-primary: #212121;
-            --text-secondary: #666666;
-            --border-color: #e8e8e8;
-            --tip-bg: #fef9f2;
+            --text-color: #333333;
+            --border-color: #eeeeee;
+            --tip-bg: #fff8f0;
             --tip-text: #8c6d3f;
-            --tip-icon: #e6a85c;
             --btn-border: #7c6fb0;
-            --btn-text: #5b4fa0;
         }
 
         * {
@@ -27,7 +24,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+            font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             background: linear-gradient(180deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
             min-height: 100vh;
             display: flex;
@@ -36,95 +33,102 @@
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 414px;
             min-height: 100vh;
-            background: linear-gradient(180deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 35%, #f5f5f5 35%);
+            background: linear-gradient(180deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 30%, #f8f8f8 30%);
             position: relative;
         }
 
         .header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            background: rgba(255,255,255,0.95);
+            justify-content: center;
+            padding: 14px 16px;
+            background: #ffffff;
             position: sticky;
             top: 0;
             z-index: 100;
+            height: 44px;
         }
 
         .header-left {
-            width: 32px;
-            height: 32px;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
         }
 
         .header-left::before {
-            content: '<';
-            font-size: 22px;
-            color: var(--text-primary);
-            font-weight: 300;
-            letter-spacing: -2px;
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid #333333;
+            border-bottom: 2px solid #333333;
+            transform: rotate(45deg);
         }
 
         .header-title {
             font-size: 17px;
-            font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: 1px;
+            font-weight: 500;
+            color: #333333;
+            letter-spacing: 0.5px;
         }
 
         .header-right {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .more-btn {
-            font-size: 20px;
-            color: var(--text-primary);
-            letter-spacing: 2px;
-            cursor: pointer;
+            font-size: 18px;
+            color: #333333;
+            letter-spacing: 1px;
             line-height: 1;
         }
 
         .avatar-icon {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            border: 1.5px solid var(--text-primary);
+            background: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
         }
 
-        .avatar-icon::after {
-            content: '👤';
-            font-size: 14px;
+        .avatar-icon svg {
+            width: 12px;
+            height: 12px;
         }
 
         .main-content {
-            padding: 20px 16px 24px;
+            padding: 16px;
         }
 
         .info-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
         }
 
         .field-row {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border-bottom: 1px solid var(--border-color);
-            min-height: 52px;
+            min-height: 44px;
+            align-items: center;
         }
 
         .field-row:last-child {
@@ -132,35 +136,35 @@
         }
 
         .field-label {
-            font-size: 15px;
-            color: var(--text-primary);
+            font-size: 14px;
+            color: #333333;
             white-space: nowrap;
             flex-shrink: 0;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .field-value {
-            font-size: 15px;
-            color: var(--text-primary);
+            font-size: 14px;
+            color: #333333;
             text-align: right;
             word-break: break-all;
-            line-height: 1.5;
-            margin-left: 16px;
+            line-height: 1.4;
+            margin-left: 12px;
             font-weight: 400;
         }
 
         .tip-section {
-            margin-top: 20px;
+            margin-top: 16px;
             background: var(--tip-bg);
-            border-radius: 10px;
-            padding: 14px 16px;
+            border-radius: 8px;
+            padding: 12px 14px;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: flex-start;
         }
 
         .tip-icon {
-            font-size: 18px;
+            font-size: 16px;
             flex-shrink: 0;
             line-height: 1.5;
         }
@@ -170,44 +174,44 @@
         }
 
         .tip-title {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 500;
             color: var(--tip-text);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .tip-text {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--tip-text);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .back-btn-wrapper {
-            margin-top: 28px;
+            margin-top: 24px;
             padding: 0 16px;
         }
 
         .back-btn {
             width: 100%;
-            height: 46px;
-            border: 1.5px solid var(--btn-border);
-            border-radius: 24px;
-            background: transparent;
-            color: var(--btn-text);
-            font-size: 16px;
-            font-weight: 500;
+            height: 44px;
+            border: 1px solid var(--btn-border);
+            border-radius: 22px;
+            background: #ffffff;
+            color: var(--btn-border);
+            font-size: 15px;
+            font-weight: 400;
             cursor: pointer;
             transition: all 0.2s ease;
             letter-spacing: 2px;
         }
 
         .back-btn:hover {
-            background: rgba(92, 79, 160, 0.05);
+            background: rgba(124, 111, 176, 0.05);
         }
 
         .back-btn:active {
             transform: scale(0.98);
-            background: rgba(92, 79, 160, 0.08);
+            background: rgba(124, 111, 176, 0.08);
         }
     </style>
 </head>
@@ -218,7 +222,12 @@
             <div class="header-title">国内保函验真</div>
             <div class="header-right">
                 <span class="more-btn">···</span>
-                <div class="avatar-icon"></div>
+                <div class="avatar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" fill="#999999"/>
+                        <path d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
             </div>
         </div>
 
@@ -226,11 +235,11 @@
             <div class="info-card">
                 <div class="field-row">
                     <span class="field-label">保函编号：</span>
-                    <span class="field-value">110DB24072900047</span>
+                    <span class="field-value">110DB26052200047</span>
                 </div>
                 <div class="field-row">
                     <span class="field-label">保函金额：</span>
-                    <span class="field-value">116,500.00</span>
+                    <span class="field-value">237,000.00</span>
                 </div>
                 <div class="field-row">
                     <span class="field-label">保函类型：</span>
@@ -250,11 +259,11 @@
                 </div>
                 <div class="field-row">
                     <span class="field-label">保函开立日期：</span>
-                    <span class="field-value">2024-07-30</span>
+                    <span class="field-value">2026-05-22</span>
                 </div>
                 <div class="field-row">
                     <span class="field-label">保函到期日期：</span>
-                    <span class="field-value">2029-09-15</span>
+                    <span class="field-value">2031-06-21</span>
                 </div>
                 <div class="field-row">
                     <span class="field-label">验真结果：</span>
